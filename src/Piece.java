@@ -26,12 +26,22 @@ public class Piece {
         return Character.toLowerCase(symbol);
     }
 
-    // convert row and column values to chess Notation eg 0,0 -> A1
+    // convert row and column values to chess notation eg 0,0 -> A1
     public String getPosition() {
         return ChessUtils.columnToLetter(column) + ChessUtils.rowToNumber(row);
     }
 
+    // update the row and column values to a new chess position
+    public void setPosition(String position) {
+        row = ChessUtils.getRowFromPosition(position);
+        column = ChessUtils.getColumnFromPosition(position);
+    }
+
     public boolean isValidMove(String targetPosition) {
+        // staying on the same spot is always illegal for any piece
+        if (targetPosition.equals(getPosition())) {
+            return false;
+        }
         return true;
     }
 }
