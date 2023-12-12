@@ -21,6 +21,7 @@ public class Rook extends Piece{
         return false;
     }
 
+    // TODO
     // return an array of all positions the piece moves through, excluding the final position
     // this is used to check if a piece illegally moves through another piece
     public String[] passesThrough(String targetPosition) {
@@ -28,7 +29,7 @@ public class Rook extends Piece{
         int startCol = ChessUtils.getColumnFromPosition(getPosition());
         int endRow = ChessUtils.getRowFromPosition(targetPosition);
         int endCol = ChessUtils.getColumnFromPosition(targetPosition);
-        String squares[];
+        String squares[] = new String[8];  // no piece can pass through more than 8 squares
         // check if we are moving horizontally or vertically
         // add the coordinates of each square along the row or column to the array
         // excluding the start and end square
